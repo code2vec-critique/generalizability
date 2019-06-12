@@ -1,0 +1,38 @@
+To prepare the training data for code comment generation: 
+Change Filepaths.java and change the paths of the ORIGINAL_DATA_* variables to point to where the data is on your filesystem.
+These files are downloaded from the orignal repository used in the paper Deep Code Comment Generation: https://github.com/xing-hu/DeepCom
+
+Next, run CommentPreProcessorEntry.java. For this step, fter each run, change the value of `mode` in Utils.java. In total, run it  3 times setting the value of `mode` to the values of  Mode.TRAIN,  Mode.VALID, and  Mode.TEST. 
+
+
+After this, tokenize the training data: 
+java -cp stanford-parser.jar edu.stanford.nlp.process.PTBTokenizer -preserveLines comment.<train>.txt > comment.<train>.token
+where <train> can be train, valid, or test
+
+Then run FilterBadCasesEntry.java,
+Find30000MostCommonCodeTokens.java,
+SBTPreprocessorEntry.java
+
+Run them on all three settings of Mode.TRAIN, Mode.VALID and Mode.TEST.
+
+
+cp sbtTRAIN.txt data_deepcom/train.code
+cp sbtVALID.txt data_deepcom/valid.code
+cp sbtTEST.txt data_deepcom/test.code
+mv comment.train.filtered.token.first  data_deepcom/train.comment
+head -n5000 comment.valid.filtered.token.first >  data_deepcom/valid.comment
+head -n5000 comment.test.filtered.token.first > data_deepcom/test.comment
+
+
+The data is thus prepared and ready to be run using OpenNMT. 
+
+Checkout the source code of OpenNMT and run the following: 
+
+python preprocess.py -train_src data_deepcom/train.code -train_tgt data_deepcom/train.comment -valid_src data_deepcom/valid.code -valid_tgt data_deepcom/valid.comment -save_data data_deepcom/saved_code_nmt -src_seq_length 400 -tgt_seq_length 400 -tgt_vocab_size 30000
+
+./tools/embeddings_to_torch.py -emb_file "path_to_embeddings" -dict_file "data/data.vocab.pt" -output_file "data/embeddings"
+e.g.  ./tools/embeddings_to_torch.py -emb_file_enc data_deepcom/code2vec_subtoken.txt -emb_file_dec data_deepcom/code2vec_subtoken.txt -dict_file "data_deepcom/saved_code_nmt.vocab.pt" -output_file "data_deepcom/embeddings"
+
+
+The scripts `preprocess.py`, `tools/embeddings_to_torch.py` are scripts found in OpenNMT. 
+
