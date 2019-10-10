@@ -36,3 +36,7 @@ e.g.  ./tools/embeddings_to_torch.py -emb_file_enc data_deepcom/code2vec_subtoke
 
 The scripts `preprocess.py`, `tools/embeddings_to_torch.py` are scripts found in OpenNMT. 
 
+
+data may be accessed from https://www.dropbox.com/s/l8o1s7qntq42215/comment_data.zip?dl=0.
+
+
