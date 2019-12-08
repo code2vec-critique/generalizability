@@ -11,5 +11,7 @@ This threshold can be tuned (manually) accordingly until both code2vec and glove
 
 
 Dataset:
+
 BigCloneBench can be accessed from https://github.com/jeffsvajlenko/BigCloneEval (from Jeffrey Svajlenko and Chanchal K. Roy, “Evaluating Clone Detection Tools with BigCloneBench”, In Proceedings of the 31st International Conference on Software Maintenance and Evolution (ICSME 2015))
+
 OJClone can be accessed from https://sites.google.com/site/treebasedcnn/ (from Mou, Lili, et al. "Convolutional neural networks over tree structures for programming language processing." Thirtieth AAAI Conference on Artificial Intelligence. 2016.)
