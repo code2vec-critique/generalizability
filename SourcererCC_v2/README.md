@@ -35,7 +35,7 @@ The output of SourcererCC is written to a file in output7.0. `convert.py` is pro
 `convert.py` takes the output file of SourcererCC as input, and writes to standard output. `python convert.py output7.0/blocksclones_index_WITH_FILTER.txt > output.csv` 
 
 
-On BigCloneBench (download/clone from https://github.com/jeffsvajlenko/BigCloneEval), from the `commands` directory, `run `init`, `registerTool`, `listTools`,`importClones`, and `evaluate`. 
+On BigCloneBench (download/clone from https://github.com/jeffsvajlenko/BigCloneEval), from the `commands` directory, run `init`, `registerTool`, `listTools`,`importClones`, and `evaluate`. 
 
 e.g. `./init`
 
