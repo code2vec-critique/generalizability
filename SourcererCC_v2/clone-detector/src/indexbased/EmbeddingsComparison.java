@@ -121,8 +121,7 @@ public class EmbeddingsComparison {
 
     public static void readEmbeddings() {
         try (BufferedReader reader = new BufferedReader(
-                new FileReader("/Users/kanghongjin/repos/gen_nn_w_embeddings/vectors_lower_parseable.txt")
-//                new FileReader("/Users/kanghongjin/repos/code2vec/models/java14_model/tokens.txt")
+                new FileReader("~/vectors_lower_parseable.txt")
 
         )) {
 
