@@ -8,7 +8,8 @@ The following packages were installed:
 pip install gensim scikit-learn pandas
 
 The gcj dataset can be obtained from https://github.com/Jur1cek/gcj-dataset.
-The dataset of submissions from 2008-2017 was used.
+The dataset of submissions from 2008-2017 was used. 
+The url to the dataset can be found on https://github.com/Jur1cek/gcj-dataset/tree/d1ca2128327d334f32bb9bb8be063e386020146e, an older commit of the repository. 
 
 Code from 
 https://github.com/keishinkickback/Pytorch-RNN-text-classification
